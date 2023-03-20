@@ -1,7 +1,7 @@
-# Script Information: 
-<p   align = "center">
-<img alt   = "License" src = "https://img.shields.io/badge/Lines%20of%20Code-3.4K-blueviolet?style=for-the-badge&logo=discord&labelColor=10141F&color=191449">
-</p>
+# Script Loader:
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ManticoreV101/ND-GUIs/main/Discord%20ND%20GUI.lua"))()
+```
 
 # 💻Tech Stack
 ![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)
