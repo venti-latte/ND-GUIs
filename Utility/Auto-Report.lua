@@ -18,7 +18,7 @@ words = {
     ["skill issue"]    = "Bullying",
     ["parent"]         = "Bullying",
     ["kid"]            = "Bullying",
-    ["kiddo"]          = "Scamming",
+    ["kiddo"]          = "Bullying",
     ["ugly"]           = "Bullying",
     ["child"]          = "Bullying",
     ["trash"]          = "Bullying",
@@ -86,57 +86,51 @@ function notify(title, text)
     )
 end
 
-if syn then
-    notify("Autoreport", "this DOESNT WORK ON SYNAPSE!")
-    notify("Autoreport", "3ds disabled ReportAbuse so yea")
-    return
-end
-
 function handler(msg, speaker)
     for i, v in next, words do
         if string.match(string.lower(msg), i) then
-            players:ReportAbuse(players[speaker], v, "He is breaking roblox TOS")
+            players:ReportAbuse(players[speaker], v, "Breaking TOS.")
             task.wait(1.5)
-            players:ReportAbuse(players[speaker], v, "He is breaking roblox TOS")
+            players:ReportAbuse(players[speaker], v, "Breaking TOS.")
             if autoreportcfg.Webhook ~= nil and autoreportcfg.Webhook ~= "" and autoreportcfg.Webhook ~= " " then
                 local data = {
                     ["embeds"] = {
                         {
                             ["title"] = "**" ..
                             game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "**",
-                            ["description"] = "Auto-reported a player",
+                            ["description"] = "Description generated.",
                             ["type"] = "rich",
                             ["color"] = tonumber(0x00aff4),
                             ["url"] = "https://www.roblox.com/games/" .. game.PlaceId,
                             ["fields"] = {
                                 {
-                                    ["name"] = "Name",
+                                    ["name"] = "Username:",
                                     ["value"] = "[" ..
                                     players[speaker].Name ..
                                     "](https://www.roblox.com/users/" .. players[speaker].UserId .. ")",
                                     ["inline"] = true
                                 },
                                 {
-                                    ["name"] = "Message",
+                                    ["name"] = "Entire Message:",
                                     ["value"] = msg,
                                     ["inline"] = true
                                 },
                                 {
-                                    ["name"] = "Offensive Part",
+                                    ["name"] = "Offensive String:",
                                     ["value"] = i,
                                     ["inline"] = true
                                 },
                                 {
-                                    ["name"] = "Reported For",
+                                    ["name"] = "Report Type:",
                                     ["value"] = v,
                                     ["inline"] = true
                                 }
                             },
                             ["footer"] = {
-                                ["text"] = "\nIf you think this is a mistake: stfu"
+                                ["text"] = "\nAuto-Report"
                             },
                             ["author"] = {
-                                ["name"] = "Auto Report"
+                                ["name"] = "Report Log"
                             }
                         }
                     }
