@@ -102,7 +102,7 @@ function handler(msg, speaker)
                             game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "**",
                             ["description"] = "Description generated.",
                             ["type"] = "rich",
-                            ["color"] = tonumber(0x00aff4),
+                            ["color"] = tonumber(0x2b2d31),
                             ["url"] = "https://www.roblox.com/games/" .. game.PlaceId,
                             ["fields"] = {
                                 {
